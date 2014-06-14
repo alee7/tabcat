@@ -36,20 +36,23 @@ DEFAULT_CONFIG = config-default.json
 CONFIG_URL = $(TABCAT_HOST)/tabcat-data/config
 
 # offline manifest
-KANSO_FILES = console/kanso.json core/kanso.json $(wildcard tasks/*/kanso.json)
+KANSO_FILES = core/kanso.json console/kanso.json lava/kanso.json $(wildcard tasks/*/kanso.json)
 MANIFEST = cache.manifest
 MANIFEST_DEPS = $(shell scripts/json-ls /attachments $(KANSO_FILES))
 MANIFEST_URL = $(TABCAT_HOST)/tabcat/offline/$(MANIFEST)
 
-.PHONY: all console core tasks clean $(TASK_TARGETS)
+.PHONY: all core console lava tasks clean $(TASK_TARGETS)
 
-all: console core $(TASK_TARGETS) $(PUSHED)
+all: core console lava $(TASK_TARGETS) $(PUSHED)
 
 core:
 	$(MAKE) -C core
 
 console:
 	$(MAKE) -C console
+
+lava:
+	$(MAKE) -C lava
 
 tasks: $(TASK_TARGETS)
 
@@ -73,7 +76,8 @@ $(PUSHED): $(DEFAULT_CONFIG) $(MANIFEST)
 	touch $@
 
 clean:
-	$(MAKE) -C console clean
 	$(MAKE) -C core clean
+	$(MAKE) -C console clean
+	$(MAKE) -C lava clean		
 	for task in $(TASK_TARGETS); do if [ -e tasks/$$task/Makefile ]; then $(MAKE) -C tasks/$$task clean; else $(MAKE) -C tasks/$$task -f ../Makefile.task clean; fi done
 	rm -f *~

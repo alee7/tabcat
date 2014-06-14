@@ -5,7 +5,6 @@
     "attachments": ["css/tabcat.css",
                     "img/favicon.ico",
                     "js/tabcat.js",
-                    "js/tasks.js",
                     "login.html"],
     "modules": ["js/couchdb/adhoc/cpt-detail-report.js",
                 "js/couchdb/adhoc/cpt-summary-report.js",

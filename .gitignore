@@ -4,15 +4,18 @@
 .pushed-*
 
 /cache.manifest*
-/console/design.json
-/console/js/*.js
-/console/packages
 /core/design.json
 /core/js/*.js
 /core/js/couchdb/*.js
 /core/js/couchdb/*/*.js
 /core/js/tabcat/*.js
 /core/packages
+/console/design.json
+/console/js/*.js
+/console/packages
+/lava/design.json
+/lava/js/*.js
+/lava/packages
 /tasks/*/Makefile
 /tasks/*/design.json
 /tasks/*/packages

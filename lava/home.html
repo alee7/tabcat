@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" class="fullscreen" manifest="/tabcat/offline/cache.manifest">
+  <head>
+    <title>Tasks</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="../core/img/favicon.ico"/>
+    <link rel="stylesheet" href="../core/css/tabcat.css">
+    <link rel="stylesheet" href="css/console.css">
+  </head>
+  <body>
+    <div id="statusBar"></div>
+    <div id="tasks">
+      <p class="message">
+        Select a task from one of the batteries below, or
+        <button id="closeEncounter" disabled>Close Encounter</button>
+      </p>
+      <div id="taskList" class="unselectable"></div>
+    </div>
+    <script src="../core/js/tabcat.js"></script>
+    <script src="js/tabcat-console.js"></script>
+    <script src="js/tasks.js"></script>
+    <script>initPage();</script>
+  </body>
+</html>
