@@ -1,11 +1,15 @@
 angular.module('lava.controllers', [])
   .controller('ItineraryCtrl', ($scope, ItineraryService) ->
     $scope.patients = ItineraryService.patients
-    $scope.instruments = ItineraryService.instruments
   )
   .controller('PatientCtrl', ($scope, patient, ItineraryService) ->
     $scope.patient = patient
-    $scope.instruments = ItineraryService.instruments
+  )
+  .controller('InstrumentCtrl', ($scope, instrument, ItineraryService) ->
+    debugger
+    alert 'here'
+    $scope.instrument = instrument
+    $scope.hello = 'hello'
   )
   .controller('MacDiagnosisCtrl', ($scope, $http, $ionicModal) ->
     $http.get('http://google.com').success((data) ->
